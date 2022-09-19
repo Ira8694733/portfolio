@@ -1,0 +1,203 @@
+@use '../sections/base.scss';
+@use '../sections/container.scss';
+@use '../sections/header.scss';
+@use '../sections/footer.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$font-family: 'Montserrat';
+$color--grey-bg:#F5F5FA;
+$color--main:#323264;
+$color--grey-text: #B3B3BA;
+$color--grey-bg:#F5F5FA;
+$color-background: #FFFFFF; 
+$color--activ-regular:#24A3FF;
+$color--active:#006CCF;
+$color--accent: #F0145A;
+$color--gradient-red: linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%);
+$color--gradient-redtext: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+
+@mixin fontFamily-bold ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin fontFamily-regular ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin FlexColunm {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin SpaceBetween {
+    display: flex;
+    justify-content: space-between;    
+}
+
+.team {
+    background-color: $color-background;
+    padding: 60px 0;
+}
+
+.team__title {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1080px;
+    padding: 0 0 0 120px;
+    margin-bottom: 60px;
+
+
+    &-text {
+    @include fontFamily-bold($font-family, normal, 700, 38px, 46px, $color--gradient-redtext);
+    background-clip: text;
+    text-emphasis-color: transparent;
+    background: -webkit-linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+}
+
+.team__wrapper {
+    display: grid;
+    grid-template-rows: (1fr 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 60px;
+    row-gap: 60px;
+}
+
+.team__card {
+    @include FlexColunm;
+    gap: 15px;
+
+    &-item {
+    @include SpaceBetween;
+    }
+
+    &-position {
+    @include fontFamily-regular($font-family, normal, 400, 12px, 22px, $color--grey-text);
+    }
+
+    &-svg {
+    height: 32px; 
+    width: 32px;
+    border-radius: 50%;
+    background-color:$color--grey-bg;
+    text-align: center;
+    padding: 0.5em;
+    }
+}    
+
+.team__card-name {
+    @include fontFamily-bold($font-family, normal, 700, 16px, 20px, $color--main);
+
+    &:hover {
+    color: $color--accent
+    }
+}
+
+.team-img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.team-svg {
+    stroke:$color--activ-regular;
+
+    &:hover {
+    stroke: $color--accent;   
+    }
+}
+
+@media screen and (max-width: 1920x) {
+    .team__title {
+        max-width: 1500px;
+    }
+       
+    .team__card {
+        height: 400px;
+        width: 493.33px;
+    }        
+  
+    .team-img {
+        width: 493.33px;
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .team__title {
+        max-width: 750px;
+    }
+       
+    .team__card {
+        height: 462px;
+        width: 100%;
+        max-width: 261.33px;
+    }        
+  
+    .team-img {
+        width: 261.33px;
+        width: 100%;
+        max-height: 400px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .team__title {
+    padding: 0;
+    }
+
+    .team__wrapper {
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .team {
+        padding: 30px 0;
+    }
+
+    .team__title {
+       width: 100%;
+    }
+
+    .team__title-text {
+    @include fontFamily-bold($font-family, normal, 700, 30px, 37px, $color--gradient-redtext);
+    }  
+
+    .team__wrapper {
+        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: 1fr;
+        gap: 90px;
+        margin-bottom: 30px;
+    }
+    .team__card {   
+        width: 100%;
+        height: 300px;
+    }   
+
+    .svg-transform {
+        transform: rotate(-90deg);
+    }
+
+    .team-img {
+        width: 100%;
+        max-width: 315px;
+        height: 300px;
+    }
+
+}

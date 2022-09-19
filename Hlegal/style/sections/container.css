@@ -1,0 +1,35 @@
+.container {
+  max-width: 1320px;
+  /*max-width: 1360px;*/
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.container__card {
+  /*max-width: 1440px;*/
+  margin: 0 auto;
+  padding: 0 0;
+}
+
+@media screen and (max-width: 1920px) {
+  .container {
+    max-width: 1740px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 942px;
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 648px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .container {
+    max-width: 345px;
+    padding: 0 15px;
+  }
+}/*# sourceMappingURL=container.css.map */

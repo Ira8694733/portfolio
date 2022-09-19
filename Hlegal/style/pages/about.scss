@@ -1,0 +1,369 @@
+@use '../sections/base.scss';
+@use '../sections/container.scss';
+@use '../sections/header.scss';
+@use '../sections/footer.scss';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$font-family: 'Montserrat';
+$color--grey-separator: #E6E6F0;
+$color--grey-bg:#F5F5FA;
+$color--main:#323264;
+$color--grey-text: #B3B3BA;
+$color--main-alt:#46466E;
+$color-background: #FFFFFF; 
+$color--grey-text: #B3B3BA;
+$color--activ-regular:#24A3FF;
+$color--accent: #F0145A;
+$color--gradient-red: linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%);
+$color--gradient-redtext: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+$color--basic: #000000;
+
+@mixin fontFamily-bold ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin fontFamily-regular ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin SpaceBetween {
+    display: flex;
+    justify-content: space-between;    
+}
+
+@mixin FlexColunm {
+    display: flex;
+    flex-direction: column;
+}
+
+.about {
+    background-color: $color-background;
+    margin:0 60px 60px;
+}
+
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.about__card-left {
+    @include FlexColunm;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 28px;
+    width: 100%;
+    max-width: 662px;
+
+.title {
+    @include fontFamily-bold($font-family, normal, 700, 38px, 46px, $color--gradient-redtext);
+    background-clip: text;
+    text-emphasis-color: transparent;
+    background: -webkit-linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-text {
+    @include fontFamily-regular($font-family, normal, 400, 19px, 30px, $color--basic); 
+}
+}
+
+.about__card-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-left: 4px solid $color--grey-separator;
+    padding-left: 30px;
+    width:100%;
+    max-width: 388px;
+
+.about__item-like {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.about__item-title {
+    @include fontFamily-bold($font-family, normal, 700, 36px, 44px, $color--gradient-redtext);
+    background-clip: text;
+    text-emphasis-color: transparent;
+    background: -webkit-linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about__item-text {
+    @include fontFamily-regular($font-family, normal, 400, 16px, 20px,$color--basic);
+}
+}
+
+.quality {
+    background-color: $color-background;
+    padding: 60px;
+}
+.quality-wrapper {
+    display: flex;  
+    justify-content: center;
+    gap: 30px;
+}
+
+.quality__card-left {
+    @include FlexColunm;
+    gap:28px;
+    width: 100%;
+    max-width: 662px;
+
+.quality__card-text {
+    @include fontFamily-regular($font-family, normal, 400, 19px, 30px, $color--basic); 
+}    
+}
+
+.quality__card-right {
+    width: 100%;
+    max-width: 362px;
+
+.card__hero {
+    @include fontFamily-bold($font-family, normal, 700, 38px, 46px, $color--gradient-redtext);
+    background-clip: text;
+    text-emphasis-color: transparent;
+    background: -webkit-linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+}
+
+.team__wrapper {
+    position: relative;
+}
+
+.team__title {
+    position: absolute;
+    left: calc(50% - 478px/2);
+    top: calc(50% - 117px/2 + 2.5px);
+    @include fontFamily-bold($font-family, normal, 700, 117px, 63px, $color-background);
+    text-align: center;
+    letter-spacing: 63px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    text-shadow: 0px 15px 30px rgba(40, 40, 86, 0.8);
+}
+
+.team__img {
+    width: 100%;    
+}
+
+.achievements {
+    background-color: $color--grey-bg;
+}
+
+.achievements-wrapper {
+    @include FlexColunm;
+    gap: 30px;
+    padding: 30px 0;
+}
+
+.achievements__title {
+   @include fontFamily-bold($font-family, normal, 700, 14px, 17px, $color--main);
+   text-align: center;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+}
+
+.achievements__card {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px 52px;
+        width: calc(25% - 40px);
+        background-color: $color-background; 
+        border-radius: 12px;
+    }
+
+    &-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+.achievements__switch-hiddin {
+    display: none;
+}
+
+@media screen and (max-width: 1920px) {
+    .about__card-left {
+        width: 100%;
+        max-width: 938px;
+    }
+
+    .quality__card-left {
+        width: 100%;
+        max-width: 938px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .about__card-left {
+        width: 100%;
+        max-width: 486px;
+    }
+
+    .quality__card-left {
+        width: 100%;
+        max-width: 482px;
+    }
+
+    .achievements__card-item {
+        padding: 14px 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {  
+    .about-wrapper {
+        @include FlexColunm;
+        gap: 30px;
+    }
+    
+    .about__card-left {
+        width: 100%;
+        max-width: 648px;
+    }    
+   
+    .quality-wrapper {
+        @include FlexColunm;
+    }
+    
+    .quality__card-left {
+        width: 100%;
+        max-width: 648px;   
+    }
+    
+    .quality__card-right {
+        width: 100%;
+        max-width: 648px;
+    }
+  
+    .team__wrapper {
+        position: relative;
+    }
+    
+    .team__title {
+        @include fontFamily-bold($font-family, normal, 700, 46px, 56px, $color-background);
+        left: calc(50% - 328px/2);
+        top: calc(50% - 56px/2 + 0.2px);
+    }
+      
+    .achievements-wrapper {
+        @include FlexColunm;
+        gap: 30px;
+        padding: 30px 0;
+    }
+    
+    .achievements__card-item {
+        padding: 25px 13px;
+    }
+}  
+
+@media screen and (max-width: 575px) {  
+    .about-wrapper {
+        @include FlexColunm;
+        gap: 15px;
+    }
+    
+    .about__card-left {
+        width: 100%;
+        max-width: 315px;
+    }   
+    
+    .team__wrapper {
+        width: 100%;
+    }
+    
+    .team__title {
+        @include fontFamily-bold($font-family, normal, 700, 36px, 44px, $color-background);
+        letter-spacing: 13px;
+        width: 100%;
+        max-width: 148px;
+        height: 44px;
+        left: calc(50% - 148px/2);
+        top: calc(50% - 44px/2 - 0.03px);
+    }
+   
+    .quality__card-left {
+        width: 100%;
+        max-width: 315px;   
+    }
+    
+    .quality__card-right {
+        width: 100%;
+        max-width: 315px;
+    }
+    
+    .achievements-wrapper {
+        width: 100%;
+        max-width: 315px;
+        overflow: auto;
+    }
+    
+    .achievements__card {
+        display: flex;
+        justify-content: center;
+
+        &-item {
+            align-items: center;
+            justify-content: center;
+            padding: 25px 50px;
+            width: 100%;
+            max-width: 255px;
+        }
+    
+        &-img {
+            max-width: 100%;
+            height: 40px;
+        }
+    }
+
+    .card-hidden {
+        display: none;
+    }
+      
+    .achievements__switch-hiddin {
+        display: block;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        background: $color--activ-regular;
+        opacity: 0.2;
+        border-radius: 50%;  
+    
+        &:hover {
+        opacity: 0.6; 
+        }
+    }
+    
+}
+
+  
+
+
+

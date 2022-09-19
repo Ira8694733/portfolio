@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*body {
+    overflow-x: hidden
+}*/
+a {
+  text-decoration: none;
+}
+
+input, textarea, button {
+  outline: none;
+  width: 100%;
+}
+
+.title {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 46px;
+  color: linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%);
+  background-clip: text;
+  -webkit-text-emphasis-color: transparent;
+          text-emphasis-color: transparent;
+  background: -webkit-linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.achievements__switch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+}
+
+.achievements__switch-circle {
+  display: block;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background: #24A3FF;
+  opacity: 0.2;
+  border-radius: 50%;
+}
+.achievements__switch-circle:hover {
+  opacity: 0.6;
+}
+
+.circle-active {
+  opacity: 1;
+}
+
+.team__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3.5px;
+}
+.team__item .team__item-text {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #24A3FF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 375px) {
+  .title {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    color: linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%);
+  }
+}/*# sourceMappingURL=base.css.map */

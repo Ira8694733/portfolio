@@ -1,0 +1,266 @@
+@use '../sections/base.scss';
+@use '../sections/container.scss';
+@use '../sections/header.scss';
+@use '../sections/footer.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$font-family: 'Montserrat';
+$color--grey-bg:#F5F5FA;
+$color--main:#323264;
+$color--grey-text: #B3B3BA;
+$color-background: #FFFFFF; 
+$color--grey-separator: #E6E6F0;
+$color--grey-bgalt: #EDEDF7;
+$color--activ-regular:#24A3FF;
+$color--active-hover:#0085FF;
+$color--active:#006CCF;
+$color--accent: #F0145A;
+$color--gradient-red: linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%);
+$color--gradient-redtext: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+
+@mixin fontFamily-bold ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin fontFamily-regular ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin FlexColunm {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact {
+    background-color: $color-background;
+}
+
+.contact__wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 60px;
+}
+
+.contact__card {
+    
+    
+    &-text {
+    @include fontFamily-regular($font-family, normal, 400, 21px,30px, $color--main);
+    text-align: left;
+    align-self: stretch;
+}
+
+    &-tel {
+    @include fontFamily-regular($font-family, normal, 400, 21px,30px, $color--main);
+    text-align: left;
+}
+
+    &-mail {
+    @include fontFamily-regular($font-family, normal, 400, 21px,30px, $color--activ-regular);
+    text-align: left;
+}
+}
+
+.contact__card-left {
+    @include FlexColunm;
+    gap:30px;  
+    width: 510px;
+}    
+
+.contact__item-up {
+    @include FlexColunm;
+    gap:15px;
+    border-bottom: 4px solid $color--grey-separator;
+    border-top: 4px solid $color--grey-separator;
+    padding: 15px 0;
+}
+
+.contact__item-low {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.contact__item-svg {
+    fill: $color--activ-regular;
+    transition: opacity 0.3s ease-in-out;
+  
+    &:hover {
+    fill: $color--accent;
+    transition: opacity 0.3s ease-in-out;
+}
+}
+
+.contact__item-page {
+    @include fontFamily-bold($font-family, normal, 700, 12px, 16px, $color--activ-regular);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    &:hover {
+    color: $color--accent;
+    transition: opacity 0.3s ease-in-out;
+}
+}
+
+
+.contact__card-right {
+    @include FlexColunm;
+    gap:30px;
+    background-color:$color--grey-bg;
+    padding: 30px;
+    border-radius: 12px; 
+    width: 510px;  
+}
+
+textarea  {
+    @include fontFamily-regular ($font-family, normal, 400, 16px,26px, $color--grey-text); 
+}
+.card__form-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $color--grey-text;
+        opacity: 1; /* Firefox */
+}
+      
+.card__form-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $color--grey-text;
+}
+      
+.card__form-input::-ms-input-placeholder { /* Microsoft Edge */
+        color: $color--grey-text;
+}
+
+.card__form-input:focus {
+    border: 2px solid $color--activ-regular;
+}
+
+.card__form-input:invalid {
+    border: 2px solid $color--accent;
+}
+
+.card__form-input:disabled {
+    background-image: $color--grey-bgalt;
+}
+
+.card__form {
+    @include FlexColunm;
+    gap:15px;
+
+    &-input {
+    @include fontFamily-regular ($font-family, normal, 400, 16px,26px, $color--grey-text);
+    text-align: left;
+    max-width: 450px;
+    padding: 15px;
+    flex-shrink: 0;
+    border: 1px solid $color-background;
+    background-color:$color-background;
+}
+
+    &-title {
+    @include fontFamily-bold($font-family, normal, 700, 30px, 37px, $color--gradient-redtext);
+    background-clip: text;
+    text-emphasis-color: transparent;
+    background: -webkit-linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+
+    &-text {
+    @include fontFamily-bold ($font-family, normal, 700, 14px, 17px, $color--grey-text);
+    line-height: 17px;
+    letter-spacing: 1px;
+    text-transform: uppercase
+}
+}
+
+button {
+    text-align: center;
+    @include fontFamily-bold($font-family, normal, 700, 16px, 20px, $color-background);
+    padding: 18px;
+    background-color: $color--activ-regular;
+    box-shadow: 0px 0px 20px $color--activ-regular (36, 163, 255, 0.5);
+    border-radius: 12px;
+    border: none;
+
+    &:hover {
+    background-color: $color--active-hover; 
+    }
+
+    &:active {
+    background-color:$color--active;    
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .contact__card-left {
+       max-width: 650px;
+    }  
+    
+    .contact__card-right {
+        max-width: 650px;
+    }  
+
+    .card__form-input {
+        max-width: 590px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .contact__wrapper {
+        padding: 60px 0;
+    }
+    
+    .contact__card-left {
+       width: 100%;
+       max-width: 422px;
+    }  
+    
+    .contact__card-right {
+        width: 100%;
+        max-width: 422px;
+    }  
+}
+
+@media screen and (max-width: 768px) {
+    .contact__wrapper {
+        flex-direction: column;
+    }
+
+    .contact__card-left {
+        width: 100%;
+        max-width: 603px;
+     }  
+     
+    .contact__card-right {
+        width: 100%;
+        max-width: 603px;
+    } 
+}
+
+@media screen and (max-width: 575px) {
+    .contact__wrapper {
+        gap: 30px;
+        padding: 30px 0;
+    }
+
+    .contact__card-left {
+        width: 100%;
+        max-width: 315px;
+     }  
+     
+    .contact__card-right {
+        width: 100%;
+        max-width: 315px;
+    } 
+}

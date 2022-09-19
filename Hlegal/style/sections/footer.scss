@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$font-family: 'Montserrat';
+$color--grey-bg:#F5F5FA;
+$color--main:#323264;
+$color--grey-text: #B3B3BA;
+$color--main-alt:#46466E;
+$color-background: #FFFFFF; 
+$color--grey-text: #B3B3BA;
+$color--activ-regular:#24A3FF;
+$color--active:#006CCF;
+$color--accent: #F0145A;
+
+@mixin fontFamily-bold ($font-family, $font-style, $font-weight, $font-size, $line-height, $color) { 
+    font-family: $font-family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height:$line-height;
+    color: $color;
+}
+
+@mixin SpaceBetween {
+    display: flex;
+    justify-content: space-between;    
+}
+
+@mixin FlexColunm {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background-color: $color--grey-bg;
+}
+
+.footer__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    /*padding:32px 0 39px;*/
+    gap: 21px;
+}
+
+
+.footer__map {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    order: 0;
+    gap:20px;
+     
+
+    &-text {
+    @include fontFamily-bold($font-family, normal, 400, 16px, 20px, $color--main);
+    }
+
+
+    &-link {
+    position: relative;
+    display: inline-block;
+    @include fontFamily-bold($font-family, normal, 700, 12px, 15px, $color--activ-regular);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    align-items: center;
+    }
+
+    &-link::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        transform: translateY(-50%);
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $color--grey-text;
+    }
+}
+
+.footer__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    order:2;
+    @include fontFamily-bold($font-family, normal, 400, 16px, 20px, $color--main);    
+}
+
+.footer__low {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    order:3;
+    gap: 20px;
+
+    &-facebook {
+    fill:$color--activ-regular;
+    transition: opacity .3s ease-in-out;
+    }
+
+    &-facebook:hover {
+        fill: $color--accent;
+        transition: opacity .3s ease-in-out; 
+    }
+}
+
+.footer__low-phone { 
+    position: relative;
+    display: inline-block;
+    @include fontFamily-bold($font-family, normal, 700, 16px, 20px, $color--main-alt);
+}
+
+.footer__low-phone::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -12px;
+    transform: translateY(-50%);
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color--grey-text;
+}
+
+.footer__low-mail {
+    position: relative;
+    display: inline-block;
+    @include fontFamily-bold($font-family, normal, 700, 16px, 20px, $color--activ-regular);
+    transition: opacity .3s ease-in-out;
+
+    &:hover {
+    color:$color--accent;
+    transition: opacity .3s ease-in-out;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -12px;
+        transform: translateY(-50%);
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $color--grey-text;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer__wrapper {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        padding:30px 80px;
+        gap: 30px;
+    }
+
+    .footer__wrapper-dark {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 20px;
+    }
+    
+    .footer__map {
+        flex-wrap: wrap;
+        order:0;
+    }
+
+    .footer__copyright {
+        justify-content: center;
+        order:3;
+     }
+
+     .footer__copyright-dark {
+        justify-content: end;
+        order: 1;
+     }
+        
+    .footer__low {
+        flex-wrap: wrap;
+        order: 2;
+
+    }  
+}
+
+@media screen and (max-width: 575px) {
+    .footer__wrapper {
+        padding:0px;
+        gap: 0px;
+    }
+    
+    .footer__map {
+        flex-direction: column;
+        justify-content: center;
+        order:0;
+
+        &-link::before {
+            display: none;
+        }
+    }
+
+    .footer__copyright {
+        justify-content: center;
+        order:3;
+     }
+        
+    .footer__low {
+        flex-direction: column;
+        justify-content: center;
+        order: 2;
+    }
+
+    .footer__low-phone::before {
+        display: none;
+    }
+    
+    .footer__low-mail::before {
+        display: none;
+    }
+}
+
+
+        
+
+
+
+
+
+
